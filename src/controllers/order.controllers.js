@@ -1,4 +1,4 @@
-import { ordersCollection } from "../database/db";
+import { ordersCollection } from "../database/db.js";
 
 export async function createOrder(req, res){
     const order = res.locals.order;

@@ -1,20 +1,22 @@
 import express from 'express';
 import cors from 'cors';
-//import joi from 'joi';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 import orderRoutes from './routes/order.routes.js';
 import authRoutes from './routes/auth.routes.js';
-
-/* const userSchema = joi.object({
-    name: joi.string().min(1).required(),
-}); */
+import userRoutes from './routes/user.routes.js';
 
 const app = express();
-app.use(cors());
+
 app.use(express.json());
-app.use(authRoutes);
+app.use(cors());
 app.use(orderRoutes);
+app.use(authRoutes);
+app.use(userRoutes);
 
 const port = process.env.PORT || 5000;
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
