@@ -1,7 +1,7 @@
-import { sessionsCollection } from "../database/db";
+import { sessionsCollection } from "../database/db.js";
 import { v4 as uuidV4 } from "uuid";
 
-export async function singIn(req, res){
+export async function signIn(req, res){
     const user = res.locals.user;
     const token = uuidV4();
     
